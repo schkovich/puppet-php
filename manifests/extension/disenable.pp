@@ -1,3 +1,4 @@
+<<<<<<< ebc85247af025b7d79c3682076e7c59f5f44b905
 # == Type: php::extension::disenable
 #
 # Enables a PHP extension installed using PECL

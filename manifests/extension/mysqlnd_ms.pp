@@ -57,7 +57,8 @@ class php::extension::mysqlnd_ms(
   $package  = $php::extension::mysqlnd_ms::params::package,
   $provider = $php::extension::mysqlnd_ms::params::provider,
   $inifile  = $php::extension::mysqlnd_ms::params::inifile,
-  $settings = $php::extension::mysqlnd_ms::params::settings
+  $settings = $php::extension::mysqlnd_ms::params::settings,
+  $plugin_config = $php::extension::mysqlnd_ms::params::plugin_config
 ) inherits php::extension::mysqlnd_ms::params {
 
   php::extension { 'mysqlnd_ms':
@@ -69,6 +70,22 @@ class php::extension::mysqlnd_ms(
   php::config { 'php-extension-mysqlnd_ms':
     file   => $inifile,
     config => $settings
+  }
+  # TODO: add one more parameter to customize where json file is saved
+  if ($ensure == 'absent') {
+    file { "/etc/php5/fpm/mysqlnd_ms.json":
+      ensure => absent,
+      require => Package['php5-fpm'],
+    }
+  } else {
+    file { "/etc/php5/fpm/mysqlnd_ms.json":
+      ensure  => file,
+      require => Php::config['php-extension-mysqlnd_ms'],
+      content => template('php/mysqlnd_ms.erb'),
+      owner   => root,
+      group   => root,
+      mode    => '0644',
+    }
   }
 
 }

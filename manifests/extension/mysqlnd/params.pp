@@ -47,5 +47,6 @@ class php::extension::mysqlnd::params {
   $settings = [
     'set ".anon/extension" "mysqlnd.so"'
   ]
-
+  # todo: should default to empty hash
+  $plugin_config = undef
 }

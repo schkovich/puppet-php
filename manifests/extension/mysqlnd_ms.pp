@@ -75,12 +75,12 @@ class php::extension::mysqlnd_ms(
   if ($ensure == 'absent') {
     file { "/etc/php5/fpm/mysqlnd_ms.json":
       ensure => absent,
-      require => Package['php5-fpm'],
+      require => Php::Config['php-extension-mysqlnd_ms'],
     }
   } else {
     file { "/etc/php5/fpm/mysqlnd_ms.json":
       ensure  => file,
-      require => Php::config['php-extension-mysqlnd_ms'],
+      require => Php::Config['php-extension-mysqlnd_ms'],
       content => template('php/mysqlnd_ms.erb'),
       owner   => root,
       group   => root,

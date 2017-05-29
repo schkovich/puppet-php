@@ -1,15 +1,15 @@
 define php::extension::reconfigure (
   $ensure,
-  $package,
+  $extension,
   $sapis    = ['cli', 'fpm', 'apache2'],
   $priority = 20,
 ) {
-  $uniqe_sapis = suffix($sapis, $package)
+  $uniqe_sapis = suffix($sapis, $extension)
   php::sapi { $uniqe_sapis:
-    extension => $package,
+    extension => $extension,
     ensure    => $ensure,
     priority  => $priority,
-    require   => Package[$package],
+    require   => Package["php5-${extension}"],
   }
 
 }

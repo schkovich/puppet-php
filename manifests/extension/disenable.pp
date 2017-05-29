@@ -39,13 +39,13 @@ define php::extension::disenable (
   assert_private("This is a privete type and should not be used on its own.")
 
   $sapi = delete($title, $extension)
-
-  Exec {
-  #   fact that php5-common does not guarantee that extension is installed
-    require => Package[$extension],
-  #   default path minus games
-    path    => '/bin:/usr/bin:/usr/local/bin: /sbin:/usr/sbin:/usr/local/sbin',
-  }
+  #
+  # Exec {
+  # #   fact that php5-common does not guarantee that extension is installed
+  #   require => Package["php5-${extension}"],
+  # #   default path minus games
+  #   path    => '/bin:/usr/bin:/usr/local/bin: /sbin:/usr/sbin:/usr/local/sbin',
+  # }
 
   validate_re($ensure, '^(latest|present|installed|absent)$')
 # no need for qualified since path is defined

@@ -84,31 +84,36 @@ define php::extension(
   $priority = 20,
 ) {
 
+  $uniqe_sapis = suffix($sapis, $package)
+
   if $provider == 'pecl' {
     package { $package:
       ensure   => $ensure,
       provider => $provider,
       source   => $source,
-      pipe     => $pipe;
+      pipe     => $pipe,
     }
-    $uniqe_sapis = suffix($sapis, $package)
-    php::sapi { $uniqe_sapis:
-      extension => $package,
-      ensure    => $ensure,
-      priority  => $priority,
-      require   => Package[$package],
-    }
+    $extension = $package
   } elsif $provider == 'dpkg' {
     package { $package:
       ensure   => $ensure,
       provider => $provider,
-      source   => $source;
+      source   => $source,
     }
+    $name = split($package, "_")
+    $extension = $name[4]
   } else {
     package { $package:
       ensure   => $ensure,
-      provider => $provider;
+      provider => $provider,
     }
+    $extension = $package[4]
   }
 
+  php::sapi { $uniqe_sapis:
+    extension => $package,
+    ensure    => $ensure,
+    priority  => $priority,
+    require   => Package[$extension]
+  }
 }

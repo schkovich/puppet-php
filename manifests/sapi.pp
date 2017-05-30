@@ -52,10 +52,12 @@ define php::sapi (
     "cli${extension}": {
       $disenable = $title
     }
-    default: {}
+    default: {
+      $disenable = "";
+    }
   }
 
-  unless empty($disenable) {
+  unless (empty($disenable)) {
     php::extension::disenable { $disenable:
       extension   => $extension,
       ensure      => $ensure,

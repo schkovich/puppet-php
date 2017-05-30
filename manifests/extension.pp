@@ -93,6 +93,7 @@ define php::extension(
       source   => $source,
       pipe     => $pipe,
     }
+    $extension = $package
   } elsif $provider == 'dpkg' {
     package { $package:
       ensure   => $ensure,

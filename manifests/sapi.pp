@@ -53,7 +53,7 @@ define php::sapi (
       $disenable = $title
     }
     default: {
-      $disenable = "";
+      $disenable = ""
     }
   }
 

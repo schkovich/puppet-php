@@ -93,7 +93,6 @@ define php::extension(
       source   => $source,
       pipe     => $pipe,
     }
-    $extension = $package
   } elsif $provider == 'dpkg' {
     package { $package:
       ensure   => $ensure,
@@ -114,7 +113,7 @@ define php::extension(
   }
 
   php::sapi { $uniqe_sapis:
-    extension => $package,
+    extension => $extension,
     ensure    => $ensure,
     priority  => $priority,
     require   => Package[$extension]

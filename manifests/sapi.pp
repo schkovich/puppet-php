@@ -42,11 +42,15 @@ define php::sapi (
     "fpm${extension}": {
       if defined(Service[$php::fpm::params::service_name]) {
         $disenable = $title
+      } else {
+        $disenable = ""
       }
     }
     "apache2${extension}": {
       if defined(Package[$php::apache::params::package]) {
         $disenable = $title
+      } else {
+        $disenable = ""
       }
     }
     "cli${extension}": {

@@ -100,14 +100,17 @@ define php::extension(
       provider => $provider,
       source   => $source,
     }
-    $name = split($package, "_")
-    $extension = $name[4]
+    $package_parts = split($package, "_")
+    $name = $package_parts[0]
+    $size = length($name)
+    $extension = $name[5, $size - 5]
   } else {
     package { $package:
       ensure   => $ensure,
       provider => $provider,
     }
-    $extension = $package[4]
+    $size = length($package)
+    $extension = $package[5, $size - 5]
   }
 
   php::sapi { $uniqe_sapis:

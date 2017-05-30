@@ -51,7 +51,7 @@ class php::extension::oauth(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-oauth':
     file    => $inifile,
     config  => $settings

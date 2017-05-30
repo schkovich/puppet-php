@@ -51,7 +51,7 @@ class php::extension::imagick(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-imagick':
     file   => $inifile,
     config => $settings

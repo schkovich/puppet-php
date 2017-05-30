@@ -56,7 +56,7 @@ class php::extension::mongo(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-mongo':
     file   => $inifile,
     config => $settings

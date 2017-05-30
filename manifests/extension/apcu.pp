@@ -51,7 +51,7 @@ class php::extension::apcu(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-apcu':
     file   => $inifile,
     config => $settings

@@ -51,7 +51,7 @@ class php::extension::gd(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-gd':
     file   => $inifile,
     config => $settings

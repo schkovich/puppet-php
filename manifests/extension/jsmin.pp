@@ -55,7 +55,7 @@ class php::extension::jsmin(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-jsmin':
     file   => $inifile,
     config => $settings

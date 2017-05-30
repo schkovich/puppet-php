@@ -55,7 +55,7 @@ class php::extension::yaml(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-yaml':
     file   => $inifile,
     config => $settings

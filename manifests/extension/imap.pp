@@ -51,7 +51,7 @@ class php::extension::imap(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-imap':
     file   => $inifile,
     config => $settings

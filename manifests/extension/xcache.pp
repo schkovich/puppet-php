@@ -51,7 +51,7 @@ class php::extension::xcache(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-xcache':
     file   => $inifile,
     config => $settings

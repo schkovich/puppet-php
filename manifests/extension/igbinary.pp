@@ -51,7 +51,7 @@ class php::extension::igbinary(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-igbinary':
     file   => $inifile,
     config => $settings

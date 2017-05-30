@@ -51,7 +51,7 @@ class php::extension::curl(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-curl':
     file   => $inifile,
     config => $settings

@@ -51,7 +51,7 @@ class php::extension::mysql(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-mysql':
     file   => $inifile,
     config => $settings

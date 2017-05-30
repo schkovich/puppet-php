@@ -55,7 +55,7 @@ class php::extension::sqlite(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-sqlite':
     file   => $inifile,
     config => $settings

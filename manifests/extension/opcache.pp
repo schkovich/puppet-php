@@ -53,7 +53,7 @@ class php::extension::opcache(
       provider => $provider
     }
   }
-
+  ->
   php::config { 'php-extension-opcache':
     file   => $inifile,
     config => $settings

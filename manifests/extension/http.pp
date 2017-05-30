@@ -51,7 +51,7 @@ class php::extension::http(
     package  => $package,
     provider => $provider;
   }
-
+  ->
   php::config { 'php-extension-http':
     file   => $inifile,
     config => $settings

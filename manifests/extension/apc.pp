@@ -51,7 +51,7 @@ class php::extension::apc(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-apc':
     file   => $inifile,
     config => $settings

@@ -51,7 +51,7 @@ class php::extension::pgsql(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-pgsql':
     file   => $inifile,
     config => $settings

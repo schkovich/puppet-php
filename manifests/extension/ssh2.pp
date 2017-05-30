@@ -51,7 +51,7 @@ class php::extension::ssh2(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-ssh2':
     file   => $inifile,
     config => $settings

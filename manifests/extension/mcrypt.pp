@@ -51,7 +51,7 @@ class php::extension::mcrypt(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-mcrypt':
     file   => $inifile,
     config => $settings

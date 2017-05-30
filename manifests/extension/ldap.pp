@@ -51,7 +51,7 @@ class php::extension::ldap(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-ldap':
     file   => $inifile,
     config => $settings

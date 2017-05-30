@@ -51,7 +51,7 @@ class php::extension::newrelic(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-newrelic':
     file   => $inifile,
     config => $settings

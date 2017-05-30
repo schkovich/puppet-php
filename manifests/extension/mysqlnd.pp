@@ -51,7 +51,7 @@ class php::extension::mysqlnd(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-mysqlnd':
     file   => $inifile,
     config => $settings

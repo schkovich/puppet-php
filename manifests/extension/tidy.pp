@@ -52,7 +52,7 @@ class php::extension::tidy(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-tidy':
     file   => $inifile,
     config => $settings

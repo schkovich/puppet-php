@@ -51,7 +51,7 @@ class php::extension::gearman(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-gearman':
     file   => $inifile,
     config => $settings

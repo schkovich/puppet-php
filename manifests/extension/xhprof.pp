@@ -51,7 +51,7 @@ class php::extension::xhprof(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-xhprof':
     file   => $inifile,
     config => $settings

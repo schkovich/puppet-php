@@ -52,7 +52,7 @@ class php::extension::memcache(
     package  => $package,
     provider => $provider
   }
-
+  ->
   php::config { 'php-extension-memcache':
     file   => $inifile,
     config => $settings

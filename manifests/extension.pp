@@ -116,6 +116,6 @@ define php::extension(
     extension => $extension,
     ensure    => $ensure,
     priority  => $priority,
-    require   => Package[$extension]
+    require   => Package[$package]
   }
 }
